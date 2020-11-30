@@ -8,14 +8,12 @@ function isSubsequence(substring, string) {
   for (const letter of string) {
     // If letter matches the current letter of substring, move substring pointer to the right
     if (letter === substring[idx]) idx += 1;
-    // Stop iterating if substring has been found
-    if (idx === substring.length) break;
+    // Return true if whole substring has been found
+    if (idx === substring.length) return true;
   }
 
-  // Check substring pointer position
-  // If substring pointer isn't at the last position, return false
-  // Else, return true
-  return idx === substring.length ? true : false;
+  // Return false since substring has not been found through entire string
+  return false;
 }
 
 console.log(isSubsequence('hello', 'hello world')); // true
