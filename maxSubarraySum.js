@@ -1,7 +1,7 @@
 function maxSubarraySum(arr, n) {
   // Handle edge case: n is greater than array length
   if (arr.length < n) {
-    return;
+    return null;
   }
 
   let tempSum = arr.slice(0, n).reduce((a, b) => a + b);
