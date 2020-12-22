@@ -1,0 +1,11 @@
+{
+  "name": "data_structures_and_algorithms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/caldric/data_structures_and_algorithms.git",
+  "author": "caldric <cvaldric@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.1.3"
+  }
+}
