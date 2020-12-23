@@ -1,11 +1,11 @@
-function maxSubarraySum(arr, n) {
+function maxSubarraySum(arr: number[], n: number): number | null {
   // Handle edge case: n is greater than array length
   if (arr.length < n) {
     return null;
   }
 
-  let tempSum = arr.slice(0, n).reduce((a, b) => a + b);
-  let maxSum = tempSum;
+  let tempSum: number = arr.slice(0, n).reduce((a, b) => a + b);
+  let maxSum: number = tempSum;
 
   for (let i = n; i < arr.length; ++i) {
     tempSum = tempSum - arr[i - n] + arr[i];
