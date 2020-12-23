@@ -1,10 +1,8 @@
-function same(arr1, arr2) {
-  const obj2 = {};
+function same(arr1: number[], arr2: number[]): boolean {
+  const obj2: any = {};
   for (const num of arr2) {
     obj2[num] = true;
   }
-
-  console.log(obj2);
 
   for (const num of arr1) {
     if (!(num ** 2 in obj2)) {
