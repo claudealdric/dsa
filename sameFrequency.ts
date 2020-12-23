@@ -1,5 +1,5 @@
-function sameFrequency(num1, num2) {
-  const num1Frequencies = {};
+function sameFrequency(num1: number, num2: number): boolean {
+  const num1Frequencies: any = {};
 
   for (const digit of String(num1)) {
     num1Frequencies[digit] = (num1Frequencies[digit] || 0) + 1;
