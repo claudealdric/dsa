@@ -1,6 +1,6 @@
-function countUniqueValues(arr) {
-  let uniqueValues = 0;
-  let previousValue;
+function countUniqueValues(arr: number[]): number {
+  let uniqueValues: number = 0;
+  let previousValue: number | undefined;
 
   for (const num of arr) {
     if (num !== previousValue) uniqueValues += 1;
