@@ -1,5 +1,5 @@
-function areThereDuplicates(...values) {
-  const seenValues = {};
+function areThereDuplicates(...values: any) {
+  const seenValues: any = {};
   for (const elem of values) {
     if (elem in seenValues) {
       return true;
