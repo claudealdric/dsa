@@ -11,6 +11,6 @@
   "proseWrap": "always",
   "quoteProps": "as-needed",
   "semi": false,
-  "singleQuote": false,
+  "singleQuote": true,
   "trailingComma": "es5"
 }
