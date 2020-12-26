@@ -1,5 +1,5 @@
 // Write a recursive function called capitalizeFirst. Given an array of strings, capitlize the first letter of each string in the array.
-const _ = require('lodash')
+import _ from 'lodash'
 
 function capitalizeFirst(arr: string[]): string[] {
   // Base case
