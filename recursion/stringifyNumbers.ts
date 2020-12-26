@@ -2,17 +2,18 @@
 import _ from 'lodash'
 
 function stringifyNumbers(obj: any): any {
-  for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      const value: any = obj[key]
+  const objCopy = JSON.parse(JSON.stringify(obj))
+  for (const key in objCopy) {
+    if (Object.prototype.hasOwnProperty.call(objCopy, key)) {
+      const value: any = objCopy[key]
       if (typeof value === 'number') {
-        obj[key] = String(value)
+        objCopy[key] = String(value)
       } else if (typeof value === 'object') {
-        obj[key] = stringifyNumbers(value)
+        objCopy[key] = stringifyNumbers(value)
       }
     }
   }
-  return obj
+  return objCopy
 }
 
 // Test
@@ -40,4 +41,5 @@ const convertedObj: any = {
   },
 }
 
+console.log(stringifyNumbers(obj))
 console.log(_.isEqual(stringifyNumbers(obj), convertedObj))
