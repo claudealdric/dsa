@@ -1,9 +1,9 @@
 import 'mocha'
 import { expect } from 'chai'
-// import { miniMaxSum } from '../miniMaxSum'
+import { miniMaxSum } from '../miniMaxSum'
 
 describe('miniMaxSum', () => {
-  it('Returns true', () => {
-    expect(true).to.equal(true)
+  it('Can be called', () => {
+    miniMaxSum()
   })
 })
