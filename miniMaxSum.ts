@@ -1,4 +1,7 @@
 export const miniMaxSum = (arr: number[] = []): [number, number] => {
+  // Throw error if the array length is smaller than 5
+  if (arr.length < 5) throw new Error('Array length must be at least 5')
+
   // Initialize the minSum and maxSum variables
   let minSum: number = Number.POSITIVE_INFINITY
   let maxSum: number = Number.NEGATIVE_INFINITY
