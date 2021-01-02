@@ -29,6 +29,6 @@
   },
   "scripts": {
     "build": "tsc -w",
-    "test": "mocha -r ts-node/register 'tests/**/*.ts'"
+    "test": "mocha -r ts-node/register"
   }
 }
