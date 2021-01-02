@@ -1,1 +1,3 @@
-export const miniMaxSum = () => {}
+export const miniMaxSum = (arr: number[] = []) => {
+  return []
+}
