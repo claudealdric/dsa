@@ -4,34 +4,25 @@ export const minimumSwaps = (arr: number[]): number => {
   let swaps: number = 0
 
   // Create mapping of index <-> value using objects
-  const indexToValue: any = {}
-  const valueToIndex: any = {}
+  const idxToVal: any = {}
+  const valToIdx: any = {}
   for (let i = 0; i < arr.length; ++i) {
-    indexToValue[i] = arr[i]
-    valueToIndex[arr[i]] = i
+    idxToVal[i] = arr[i]
+    valToIdx[arr[i]] = i
   }
 
   // Iterate through each index
-  for (let currentIndex = 0; currentIndex < arr.length; ++currentIndex) {
+  for (let current = 0; current < arr.length; ++current) {
     // If index does not contain proper value
-    if (arr[currentIndex] !== currentIndex + 1) {
+    if (arr[current] !== current + 1) {
       // Swap the current value with the proper one with the help of the map
-      const targetIndex: number = valueToIndex[currentIndex + 1]
-      ;[arr[currentIndex], arr[targetIndex]] = [
-        arr[targetIndex],
-        arr[currentIndex],
-      ]
+      const target: number = valToIdx[current + 1]
+      ;[arr[current], arr[target]] = [arr[target], arr[current]]
       swaps += 1
 
       // Update the map values
-      ;[indexToValue[currentIndex], indexToValue[targetIndex]] = [
-        arr[currentIndex],
-        arr[targetIndex],
-      ]
-      ;[valueToIndex[arr[currentIndex]], valueToIndex[arr[targetIndex]]] = [
-        currentIndex,
-        targetIndex,
-      ]
+      ;[idxToVal[current], idxToVal[target]] = [arr[current], arr[target]]
+      ;[valToIdx[arr[current]], valToIdx[arr[target]]] = [current, target]
     }
   }
 
