@@ -1,22 +1,28 @@
 # Source: https://www.hackerrank.com/challenges/minimum-swaps-2/problem
-def minimumSwaps(arr):
+def minimumSwaps(nums):
     swaps = 0
-    d1, d2 = {}, {}
+    index_to_value, value_to_index = {}, {}
 
-    for i in range(len(arr)):
-        d1[i] = arr[i]
-        d2[arr[i]] = i
+    for current in range(len(nums)):
+        index_to_value[current] = nums[current]
+        value_to_index[nums[current]] = current
 
-    for i in range(len(arr)):
-        if d1[i] != i + 1:
+    for current in range(len(nums)):
+        if nums[current] != current + 1:
             # Do a swap
-            target = d2[i + 1]
-            arr[i], arr[target] = arr[target], arr[i]
+            target = value_to_index[current + 1]
+            nums[current], nums[target] = nums[target], nums[current]
             swaps += 1
 
             # Update dictionaries
-            d1[i], d1[target] = arr[i], arr[target]
-            d2[arr[i]], d2[arr[target]] = i, target
+            index_to_value[current], index_to_value[target] = (
+                nums[current],
+                nums[target],
+            )
+            value_to_index[nums[current]], value_to_index[nums[target]] = (
+                current,
+                target,
+            )
 
     # Return swaps
     return swaps
