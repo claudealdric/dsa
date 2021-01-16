@@ -3,7 +3,7 @@ Source: https://www.hackerrank.com/challenges/ctci-ransom-note/problem
 
 Given the words in the magazine and the words in the ransom note, return Yes if he can replicate his ransom note exactly using whole words from the magazine; otherwise, return No.
 
-For example, the note is "Attack at dawn". The magazine contains only "attack at dawn". The magazine has all the right words, but there's a case mismatch. The answer is .
+For example, the note is "Attack at dawn". The magazine contains only "attack at dawn". The magazine has all the right words, but there's a case mismatch. The answer is No.
 """
 
 
