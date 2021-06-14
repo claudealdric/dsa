@@ -35,17 +35,17 @@ const printArrow = (direction: 'left' | 'right', size: number): void => {
 
 const printBackslash = (size: number, offset: number = 0): void => {
   for (let spaces = 0; spaces < size; ++spaces) {
-    logAsterisk(spaces + offset);
+    printAsterisk(spaces + offset);
   }
 };
 
 const printSlash = (size: number): void => {
   for (let spaces = size - 1; spaces >= 0; --spaces) {
-    logAsterisk(spaces);
+    printAsterisk(spaces);
   }
 };
 
-const logAsterisk = (spaces: number): void => {
+const printAsterisk = (spaces: number): void => {
   console.log(' '.repeat(spaces) + '*');
 };
 
