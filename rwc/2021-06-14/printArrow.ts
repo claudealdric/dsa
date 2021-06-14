@@ -1,0 +1,59 @@
+/* Given a direction and a number of columns, write a function that outputs an arrow of asterisks (see the pattern in the examples below)!
+ *
+ * printArrow('right', 3)
+ * Output:
+ * *
+ *  *
+ *   *
+ *  *
+ * *
+ *
+ * printArrow('left', 5)
+ * Output:
+ *     *
+ *    *
+ *   *
+ *  *
+ * *
+ *  *
+ *   *
+ *    *
+ *     *
+ */
+
+const printArrow = (direction: 'left' | 'right', size: number): void => {
+  switch (direction) {
+    case 'right':
+      printBackslash(size);
+      printSlash(size - 1);
+      break;
+    case 'left':
+      printSlash(size);
+      printBackslash(size - 1, 1);
+  }
+};
+
+const printBackslash = (size: number, offset: number = 0): void => {
+  for (let spaces = 0; spaces < size; ++spaces) {
+    logAsterisk(spaces + offset);
+  }
+};
+
+const printSlash = (size: number): void => {
+  for (let spaces = size - 1; spaces >= 0; --spaces) {
+    logAsterisk(spaces);
+  }
+};
+
+const logAsterisk = (spaces: number): void => {
+  console.log(' '.repeat(spaces) + '*');
+};
+
+// Test cases
+printArrow('left', 5);
+printArrow('right', 3);
+
+printArrow('left', 2);
+printArrow('right', 6);
+printArrow('left', 1);
+printArrow('left', 0);
