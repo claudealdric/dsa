@@ -29,7 +29,7 @@
     "ts-node": "^9.1.1"
   },
   "scripts": {
-    "build": "tsc -w",
+    "build": "tsc",
     "test": "mocha -r ts-node/register"
   }
 }
