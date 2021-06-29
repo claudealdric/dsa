@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --max-width: 800px;
+        --ratio: calc(79 / 128);
+        --width: 80vw;
+      }
+
+      .flag {
+        width: var(--width);
+        max-width: var(--max-width);
+        height: calc(var(--width) * var(--ratio));
+        max-height: calc(var(--max-width) * var(--ratio));
+        margin: 50px auto;
+        background: linear-gradient(
+          180deg,
+          red,
+          red calc(100% / 6),
+          orange calc(100% / 6),
+          orange calc(100% / 6 * 2),
+          yellow calc(100% / 6 * 2),
+          yellow calc(100% / 6 * 3),
+          green calc(100% / 6 * 3),
+          green calc(100% / 6 * 4),
+          blue calc(100% / 6 * 4),
+          blue calc(100% / 6 * 5),
+          purple calc(100% / 6 * 5),
+          purple calc(100%)
+        );
+      }
+    </style>
+    <title>Pride Flag</title>
+  </head>
+  <body>
+    <div class="flag"></div>
+  </body>
+</html>
