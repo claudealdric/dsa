@@ -1,3 +1,7 @@
+// Imagine your users are all typing slightly incorrectly, in that
+// they shifted their hands one key to the right. Write a function
+// that translates what they mean to say.
+
 export default function translateShift(str: string): string {
   // Create a mapping
   const charMapping: Record<string, string> = {
