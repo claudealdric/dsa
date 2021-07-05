@@ -12,8 +12,8 @@ function sumZero(
 
   // Compare the two numbers (until the two pointers meet)
   while (leftPointer < rightPointer) {
-    const leftNumber: number = intArray[leftPointer];
-    const rightNumber: number = intArray[rightPointer];
+    const leftNumber: number = <number>intArray[leftPointer];
+    const rightNumber: number = <number>intArray[rightPointer];
     const currentSum: number = leftNumber + rightNumber;
 
     if (currentSum === targetSum) {
@@ -27,6 +27,8 @@ function sumZero(
       leftPointer += 1;
     }
   }
+
+  return;
 }
 
 // Test cases

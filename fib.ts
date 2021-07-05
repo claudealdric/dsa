@@ -1,4 +1,4 @@
-function fib (n: number): number {
+const fib = (n: number): number => {
   // Terminate early if n = 0 or n = 1
   if (n < 2) return n;
 
@@ -19,3 +19,5 @@ function fib (n: number): number {
 for (let n = 0; n <= 10; ++n) {
   console.log(fib(n));
 }
+
+export {};

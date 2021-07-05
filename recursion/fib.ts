@@ -1,12 +1,12 @@
 // Write a recursive function called fib which accepts a number and returns the nth number in the Fibonacci sequence.
 
-function fib(num: number): number {
+const fib = (num: number): number => {
   const nthFib = [1, 1];
 
   const helper = (num: number): number => {
     if (nthFib[num - 1]) {
       // If value exists in lookup table, return it
-      return nthFib[num - 1];
+      return <number>nthFib[num - 1];
     } else {
       // Determine the new value
       const newFib: number = helper(num - 1) + helper(num - 2);
@@ -18,7 +18,7 @@ function fib(num: number): number {
   };
 
   return helper(num);
-}
+};
 
 console.log(fib(1)); // 1
 console.log(fib(2)); // 1

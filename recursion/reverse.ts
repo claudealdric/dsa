@@ -7,7 +7,7 @@ function reverse(str: string): string {
   }
 
   // Recursion
-  const lastChar: string = str[str.length - 1];
+  const lastChar: string = str[str.length - 1] as string;
   const newStr: string = str.slice(0, str.length - 1);
   return lastChar + reverse(newStr);
 }

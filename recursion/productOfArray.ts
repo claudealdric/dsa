@@ -4,7 +4,7 @@ const productOfArray = (arr: number[]): number => {
   if (arr.length === 0) return 1;
 
   // Recurse
-  return arr[0] * productOfArray(arr.slice(1));
+  return (arr[0] as number) * productOfArray(arr.slice(1));
 };
 
 console.log(productOfArray([1, 2, 3])); // 6

@@ -1,4 +1,4 @@
-function countUniqueValues(arr: number[]): number {
+const countUniqueValues = (arr: number[]): number => {
   let uniqueValues: number = 0;
   let previousValue: number | undefined;
 
@@ -8,7 +8,7 @@ function countUniqueValues(arr: number[]): number {
   }
 
   return uniqueValues;
-}
+};
 
 console.log(countUniqueValues([1, 1, 1, 2])); // 2
 console.log(countUniqueValues([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13])); // 7

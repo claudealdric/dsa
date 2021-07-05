@@ -6,7 +6,7 @@ function binarySearch(arr: number[], num: number): number {
     const mid: number = Math.floor((left + right) / 2);
     if (arr[mid] === num) {
       return mid;
-    } else if (arr[mid] > num) {
+    } else if (<number>arr[mid] > num) {
       right = mid - 1;
     } else {
       left = mid + 1;

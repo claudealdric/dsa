@@ -8,8 +8,8 @@ function isPalindrome(str: string): boolean {
 
   // Recursion
   // Check if first letter is the same as the last letter
-  const firstLetter: string = str[0];
-  const lastLetter: string = str[str.length - 1];
+  const firstLetter: string = str[0] as string;
+  const lastLetter: string = str[str.length - 1] as string;
   if (firstLetter != lastLetter) {
     // If they are different, return false and stop the recursion
     return false;

@@ -8,7 +8,7 @@ function averagePair(arr: number[], targetAvg: number): boolean {
   // Keep looping and stop once the left and right pointers cross
   while (left < right) {
     // Check the value of the current average
-    const currentAvg: number = (arr[left] + arr[right]) / 2;
+    const currentAvg: number = (<number>arr[left] + <number>arr[right]) / 2;
     // Compare current average to target average
     if (currentAvg === targetAvg) {
       // If current average is equal to the target, return true

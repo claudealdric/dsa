@@ -12,7 +12,7 @@ function reverseWords(sentence: string): string {
 
   // Iterate through the words in the sentence in reverse order
   for (let i = words.length - 1; i >= 0; i--) {
-    reversedWords.push(words[i]);
+    reversedWords.push(<string>words[i]);
   }
 
   // Rebuild the reversed words as a string and return
