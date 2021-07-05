@@ -1,7 +1,6 @@
 {
   "arrowParens": "always",
   "bracketSpacing": true,
-  "disableLanguages": ["py"],
   "tabWidth": 2,
   "useTabs": false,
   "embeddedLanguageFormatting": "auto",

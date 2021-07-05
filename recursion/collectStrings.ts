@@ -1,21 +1,21 @@
 // Write a function called collectStrings that accepts an object and returns an array of all the values in the object that have a type of string.
-import _ from 'lodash'
+import _ from 'lodash';
 
 function collectStrings(obj: any): string[] {
-  const arr: string[] = []
+  const arr: string[] = [];
 
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      const value: any = obj[key]
+      const value: any = obj[key];
       if (typeof value === 'string') {
-        arr.push(value)
+        arr.push(value);
       } else if (typeof value === 'object') {
-        arr.push(...collectStrings(value))
+        arr.push(...collectStrings(value));
       }
     }
   }
 
-  return arr
+  return arr;
 }
 
 // Tests
@@ -33,8 +33,8 @@ let obj: any = {
       },
     },
   },
-}
-console.log(_.isEqual(collectStrings(obj), ['foo', 'bar', 'baz']))
+};
+console.log(_.isEqual(collectStrings(obj), ['foo', 'bar', 'baz']));
 
 obj = {
   outer: 'outer',
@@ -43,8 +43,8 @@ obj = {
     bool: true,
     str: 'yes',
   },
-}
-console.log(_.isEqual(collectStrings(obj), ['outer', 'yes']))
+};
+console.log(_.isEqual(collectStrings(obj), ['outer', 'yes']));
 
 obj = {
   outer: 2,
@@ -56,8 +56,8 @@ obj = {
       alsoNotANumber: 'yup',
     },
   },
-}
-console.log(_.isEqual(collectStrings(obj), ['yup']))
+};
+console.log(_.isEqual(collectStrings(obj), ['yup']));
 
 obj = {
   a: 2,
@@ -65,5 +65,5 @@ obj = {
   c: { c: { c: 2 }, cc: 'ball', ccc: 5 },
   d: 1,
   e: { e: { e: 2 }, ee: 'car' },
-}
-console.log(_.isEqual(collectStrings(obj), ['ball', 'car']))
+};
+console.log(_.isEqual(collectStrings(obj), ['ball', 'car']));
