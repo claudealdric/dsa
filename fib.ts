@@ -1,4 +1,4 @@
-const fib = (n) => {
+function fib (n: number): number {
   // Terminate early if n = 0 or n = 1
   if (n < 2) return n;
 
