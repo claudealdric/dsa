@@ -1,3 +1,7 @@
+/*
+  Problem: Given a string, return the longest palindromic substring in s.
+*/
+
 /** Add a filler character between each character of a string. */
 const addFillerCharacters = (string: string, fillerChar = '|'): string =>
   string.split('').join(fillerChar);
