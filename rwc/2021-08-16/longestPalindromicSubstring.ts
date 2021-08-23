@@ -7,7 +7,7 @@ const addFillerCharacters = (string: string, fillerChar = '|'): string =>
   string.split('').join(fillerChar);
 
 /** Returns the value and index of the max element in a number array. */
-const getValueAndIndexOfMaxElement = (numbers: number[]): [number, number] => {
+const getValueAndIndexOfMaxNumber = (numbers: number[]): [number, number] => {
   let maxNumber = Number.NEGATIVE_INFINITY;
   let maxIndex = 0;
 
@@ -47,7 +47,7 @@ export const quadraticSolution = (s: string): string => {
     palindromicSubstringRadii[center] = radius;
   }
 
-  const [maxRadius, maxRadiusIndex] = getValueAndIndexOfMaxElement(
+  const [maxRadius, maxRadiusIndex] = getValueAndIndexOfMaxNumber(
     palindromicSubstringRadii
   );
 
@@ -123,7 +123,7 @@ export const linearSolution = (s: string): string => {
     }
   }
 
-  const [maxRadius, maxRadiusIndex] = getValueAndIndexOfMaxElement(
+  const [maxRadius, maxRadiusIndex] = getValueAndIndexOfMaxNumber(
     palindromicSubstringRadii
   );
 
