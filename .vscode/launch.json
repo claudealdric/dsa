@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/rwc/2021-08-16/longestPalindromicSubstring.ts",
+      "program": "${workspaceFolder}/rwc/2021-08-30/longestPrefix.ts",
       "preLaunchTask": "npm: build",
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
