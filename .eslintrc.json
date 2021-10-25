@@ -11,5 +11,5 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint"],
-  "rules": { "import/extensions": "off" }
+  "rules": { "import/extensions": "off", "no-param-reassign": "off" }
 }
