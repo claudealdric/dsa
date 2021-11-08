@@ -1,7 +1,7 @@
 package main
 
 import (
-	"dsa/localPeaks"
+	localPeaks "github.com/claudealdric/dsa/rwc/2021-11-08"
 )
 
 func main() {

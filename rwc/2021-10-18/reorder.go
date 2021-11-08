@@ -1,15 +1,6 @@
-package main
+package reorder
 
-import "fmt"
-
-func main() {
-	elements := []string{"C", "D", "E", "F", "G", "H"}
-	indices := []int{3, 0, 4, 1, 2, 5}
-	reordered := reorder(elements, indices)
-	fmt.Println(reordered)
-}
-
-func reorder(elements []string, indices []int) []string {
+func Reorder(elements []string, indices []int) []string {
 	currentIndex := 0
 
 	for i := 0; i < len(elements)-1; i++ {

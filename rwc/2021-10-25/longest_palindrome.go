@@ -1,20 +1,12 @@
-package main
+package longestPalindrome
 
-import (
-	"fmt"
-	"strings"
-)
-
-func main() {
-	fmt.Println(LongestPalindrome("xyzi_iizy"))
-	fmt.Println(LongestPalindrome("abcb_cbcbafg"))
-}
+import "strings"
 
 func LongestPalindrome(str string) string {
 	wildcardChar := byte('_')
 	fillerChar := byte('|')
 	var maxRadius, maxCenter int
-	modifiedStr := AddCharInBetween(str, fillerChar)
+	modifiedStr := addCharInBetween(str, fillerChar)
 
 	// Iterate through each char of the modified string
 	for center := 0; center < len(modifiedStr); center++ {
@@ -67,7 +59,7 @@ func LongestPalindrome(str string) string {
 	)
 }
 
-func AddCharInBetween(str string, char byte) string {
+func addCharInBetween(str string, char byte) string {
 	chars := make([]byte, 2*(len(str)-1)+1)
 
 	for i, strIdx := 0, 0; i < len(chars); i++ {
