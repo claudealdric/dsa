@@ -1,63 +1,40 @@
-function getLetterComposition(word: string): Record<string, number> {
-  const letterComposition: Record<string, number> = {};
+function getLetterCounts(word: string): Record<string, number> {
+  const letterCounts: Record<string, number> = {};
 
   for (let i = 0; i < word.length; i += 1) {
-    const letter = word[i] as string;
-    letterComposition[letter] = letterComposition[letter] ?? 0 + 1;
+    const letter = (<string>word[i]).toLowerCase();
+    letterCounts[letter] = letterCounts[letter] ?? 0 + 1;
   }
 
-  return letterComposition;
+  return letterCounts;
 }
 
-function findLetterCompositionIndexInArray(
-  letterComposition: Record<string, number>,
-  arr: Record<string, number>[]
-): number {
-  for (let i = 0; i < arr.length; i += 1) {
-    const current = arr[i] as Record<string, number>;
+function mapLetterCountsToString(letterCounts: Record<string, number>): string {
+  const alphabet: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const letterCountsFromAToZ: number[] = [];
 
-    const letterCompositionsMatch = Object.keys(letterComposition).every(
-      (letter) =>
-        letter in current && letterComposition[letter] === current[letter]
-    );
+  alphabet.forEach((letter) =>
+    letterCountsFromAToZ.push(letterCounts[letter] ?? 0)
+  );
 
-    if (letterCompositionsMatch) {
-      return i;
-    }
-  }
-
-  return -1;
+  return letterCountsFromAToZ.join(',');
 }
 
 function groupAnagrams(words: string[]): string[][] {
-  const letterCompositions: Record<string, number>[] = [];
-  const anagramGroups: string[][] = [];
+  const anagramGroups: Record<string, string[]> = {};
 
-  // Loop through each word in the word list
   words.forEach((word) => {
-    // For each word...
-    // Create word breakdown
-    const letterComposition = getLetterComposition(word);
+    const letterCounts = getLetterCounts(word);
+    const letterCountsKey = mapLetterCountsToString(letterCounts);
 
-    // Check if the letter breakdown is already present in the array
-    const letterCompositionIndex = findLetterCompositionIndexInArray(
-      letterComposition,
-      letterCompositions
-    );
-
-    // If it is not yet present...
-    if (letterCompositionIndex === -1) {
-      // Add it to the dictionaries array
-      letterCompositions.push(letterComposition);
-
-      // Create new anagram group
-      anagramGroups.push([word]);
-    } else {
-      (anagramGroups[letterCompositionIndex] as string[]).push(word);
+    if (!(letterCountsKey in anagramGroups)) {
+      anagramGroups[letterCountsKey] = [];
     }
+
+    (<string[]>anagramGroups[letterCountsKey]).push(word);
   });
 
-  return anagramGroups;
+  return Object.values(anagramGroups);
 }
 
 console.log(groupAnagrams(['eat', 'tea', 'ten', 'poop', 'net', 'ate']));
