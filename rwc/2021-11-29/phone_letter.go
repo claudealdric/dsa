@@ -1,5 +1,7 @@
 package phoneLetter
 
+import "fmt"
+
 func GetLetterCombinations(digits string) []string {
 	var combinations []string
 	digitsToLetters := map[string][]string{
@@ -53,4 +55,13 @@ func GetTestCases() []struct {
 	}
 
 	return testCases
+}
+
+func PrintTestCases() {
+	testCases := GetTestCases()
+
+	for _, testCase := range testCases {
+		fmt.Println("Input:", testCase.arg)
+		fmt.Printf("Output: %v\n\n", GetLetterCombinations(testCase.arg))
+	}
 }
