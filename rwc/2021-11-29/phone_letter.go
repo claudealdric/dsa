@@ -1,6 +1,6 @@
 package phoneLetter
 
-func GetLetterCombinations(digits string) []string  {
+func GetLetterCombinations(digits string) []string {
 	var combinations []string
 	digitsToLetters := map[string][]string{
 		"2": {"a", "b", "c"},
@@ -23,13 +23,13 @@ func GetLetterCombinations(digits string) []string  {
 		if digitIsTheFirst {
 			combinations = lettersForDigit
 			continue
-		} 
+		}
 
 		for _, combination := range combinations {
 			for _, letterForDigit := range lettersForDigit {
 				newCombinationsAfterNewDigit = append(
 					newCombinationsAfterNewDigit,
-					combination + letterForDigit,
+					combination+letterForDigit,
 				)
 			}
 		}
@@ -38,4 +38,19 @@ func GetLetterCombinations(digits string) []string  {
 	}
 
 	return combinations
+}
+
+func GetTestCases() []struct {
+	arg      string
+	expected []string
+} {
+	testCases := []struct {
+		arg      string
+		expected []string
+	}{
+		{"9", []string{"w", "x", "y", "z"}},
+		{"23", []string{"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"}},
+	}
+
+	return testCases
 }
