@@ -1,9 +1,12 @@
 package phoneLetter
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func GetLetterCombinations(digits string) []string {
-	var combinations []string
+	var combinations [][]string
 	digitsToLetters := map[string][]string{
 		"2": {"a", "b", "c"},
 		"3": {"d", "e", "f"},
@@ -18,20 +21,23 @@ func GetLetterCombinations(digits string) []string {
 	for i := 0; i < len(digits); i++ {
 		digit := string(digits[i])
 		lettersForDigit := digitsToLetters[digit]
-		var newCombinationsAfterNewDigit []string
+		var newCombinationsAfterNewDigit [][]string
 
 		digitIsTheFirst := i == 0
 
 		if digitIsTheFirst {
-			combinations = lettersForDigit
+			for _, letterForDigit := range lettersForDigit {
+				combinations = append(combinations, []string{letterForDigit})
+			}
 			continue
 		}
 
 		for _, combination := range combinations {
 			for _, letterForDigit := range lettersForDigit {
+				newCombination := append(combination, letterForDigit)
 				newCombinationsAfterNewDigit = append(
 					newCombinationsAfterNewDigit,
-					combination+letterForDigit,
+					newCombination,
 				)
 			}
 		}
@@ -39,7 +45,21 @@ func GetLetterCombinations(digits string) []string {
 		combinations = newCombinationsAfterNewDigit
 	}
 
-	return combinations
+	return mapStringSliceToString(combinations)
+}
+
+func mapStringSliceToString(input [][]string) []string {
+	var transformed []string
+
+	for _, stringSlice := range input {
+		var stringBuilder strings.Builder
+		for _, char := range stringSlice {
+			stringBuilder.WriteString(char)
+		}
+		transformed = append(transformed, stringBuilder.String())
+	}
+
+	return transformed
 }
 
 func GetTestCases() []struct {
