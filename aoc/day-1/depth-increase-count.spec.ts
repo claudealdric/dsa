@@ -1,4 +1,4 @@
-import depthIncreaseCount from './depth-increase';
+import depthIncreaseCount from './depth-increase-count';
 
 describe('depthIncrease', () => {
   it('Returns the correct number of increases', () => {
