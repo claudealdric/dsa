@@ -13,6 +13,13 @@ export enum Direction {
   Up = 'up',
 }
 
+function getVectorFromCommand(command: string): [string, number] {
+  const [direction, magnitudeString] = <[Direction, string]>command.split(' ');
+  const magnitude = Number(magnitudeString);
+
+  return [direction, magnitude];
+}
+
 export function getNewPositionFromCommands1(
   commands: string[],
   initialPosition: Coordinate = { x: 0, y: 0 }
@@ -20,10 +27,7 @@ export function getNewPositionFromCommands1(
   const currentPosition = <Coordinate>{ ...initialPosition };
 
   commands.forEach((command) => {
-    const [direction, magnitudeString] = <[Direction, string]>(
-      command.split(' ')
-    );
-    const magnitude = Number(magnitudeString);
+    const [direction, magnitude] = getVectorFromCommand(command);
 
     switch (direction) {
       case Direction.Forward:
@@ -50,10 +54,7 @@ export function getNewPositionFromCommands2(
   const currentParameters = <CoordinateWithAim>{ ...initialParameters };
 
   commands.forEach((command) => {
-    const [direction, magnitudeString] = <[Direction, string]>(
-      command.split(' ')
-    );
-    const magnitude = Number(magnitudeString);
+    const [direction, magnitude] = getVectorFromCommand(command);
 
     switch (direction) {
       case Direction.Forward:
