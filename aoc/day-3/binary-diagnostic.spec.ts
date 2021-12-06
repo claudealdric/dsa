@@ -3,10 +3,10 @@ import {
   getBinaryDiagnostic,
   getBits,
   getCo2ScrubberRating,
-  getEpsilonFromGammaBinary,
-  getGammaInBinary,
+  getEpsilonBinaryFromGammaBinary,
+  getGammaBinary,
   getMostCommonValue,
-  getNthDigitFromBinaries,
+  getNthDigitsFromBinaries,
   getO2GeneratorRating,
 } from './binary-diagnostic';
 
@@ -31,21 +31,21 @@ describe('getBits', () => {
   });
 });
 
-describe('getNthDigitFromBinaries', () => {
+describe('getNthDigitsFromBinaries', () => {
   it('returns the nth digit of all binary numbers in the array', () => {
-    expect(getNthDigitFromBinaries(0, binaryNumbers)).toStrictEqual([
-      '0',
-      '1',
-      '1',
-      '1',
-      '1',
-      '0',
-      '0',
-      '1',
-      '1',
-      '1',
-      '0',
-      '0',
+    expect(getNthDigitsFromBinaries(0, binaryNumbers)).toStrictEqual([
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
     ]);
   });
 });
@@ -53,26 +53,26 @@ describe('getNthDigitFromBinaries', () => {
 describe('getMostCommonValue', () => {
   describe('when the counts are not equal', () => {
     it('returns the most common value', () => {
-      expect(getMostCommonValue(['1', '1', '1', '0', '0'])).toBe(1);
+      expect(getMostCommonValue([1, 1, 1, 0, 0])).toBe(1);
     });
   });
 
   describe('when the counts are equal', () => {
     it('returns an invalid number', () => {
-      expect(getMostCommonValue(['1', '1', '0', '0'])).toBe(-1);
+      expect(getMostCommonValue([1, 1, 0, 0])).toBe(-1);
     });
   });
 });
 
-describe('getGammaInBinary', () => {
+describe('getGammaBinary', () => {
   it('returns the correct gamma rate', () => {
-    expect(getGammaInBinary(binaryNumbers)).toBe('10110');
+    expect(getGammaBinary(binaryNumbers)).toBe('10110');
   });
 });
 
-describe('getEpsilonFromGammaBinary', () => {
+describe('getEpsilonBinaryFromGammaBinary', () => {
   it('returns the correct epsilon rate', () => {
-    expect(getEpsilonFromGammaBinary('10110')).toBe('01001');
+    expect(getEpsilonBinaryFromGammaBinary('10110')).toBe('01001');
   });
 });
 
