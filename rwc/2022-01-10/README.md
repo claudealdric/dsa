@@ -17,3 +17,14 @@
 > $ capPermutations('35p')
 > $ ['35p', '35P']
 > ```
+
+## Approach
+
+First, generate an array of binary strings. Each binary string represents the
+rules for whether to capitalize the corresponding character in `s` to generate a
+permutation. For example, a binary string of `'101'` for `s = 'abc'` would
+generate a permutation of `'AbC'`.
+
+Then, use the array of binary strings to create a mapping from the original
+string `s` to its permutations. To remove duplicate permutations for strings
+with non-alphabet characters, store the permutations in a Set.
