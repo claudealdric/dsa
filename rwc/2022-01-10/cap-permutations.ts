@@ -1,17 +1,22 @@
-function convertNumberToBinaryString(num: number): string {
+function convertToBinaryString(num: number): string {
   return num.toString(2);
 }
 
-export default function capPermutations(str: string): string[] {
-  const permutations: Set<string> = new Set();
+function getBinaryStrings(str: string): string[] {
   const binaryStrings: string[] = [];
-  const chars = str.split('');
 
   for (let i = 0; i < 2 ** str.length; i += 1) {
-    let binaryString = convertNumberToBinaryString(i);
+    let binaryString = convertToBinaryString(i);
     binaryString = binaryString.padStart(str.length, '0');
     binaryStrings.push(binaryString);
   }
+
+  return binaryStrings;
+}
+
+function getPermutations(str: string, binaryStrings: string[]): Set<string> {
+  const permutations: Set<string> = new Set();
+  const chars = str.split('');
 
   binaryStrings.forEach((binaryString) => {
     const shouldCapitalize = binaryString.split('').map(Number);
@@ -21,5 +26,11 @@ export default function capPermutations(str: string): string[] {
     permutations.add(newChars.join(''));
   });
 
+  return permutations;
+}
+
+export default function capPermutations(str: string): string[] {
+  const binaryStrings = getBinaryStrings(str);
+  const permutations = getPermutations(str, binaryStrings);
   return Array.from(permutations);
 }
