@@ -5,28 +5,34 @@ function smallestTimeInterval(times: string[]): string {
     return Number(hourComponent) * 60 + Number(minuteComponent);
   };
 
-  const seenMinutes = new Set<number>();
+  const seenMinutes: boolean[] = Array(24 * 60).fill(false);
 
-  times.forEach((time) => seenMinutes.add(convertTimeToMinutes(time)));
+  times.forEach((time) => (seenMinutes[convertTimeToMinutes(time)] = true));
 
-  const sortedMinutes = [];
-
-  for (let i = 0; i < 1440; i += 1) {
-    if (seenMinutes.has(i)) {
-      sortedMinutes.push(i);
-    }
-  }
-
+  let left = 0;
+  let right = 0;
   let smallestTimeInterval = Number.POSITIVE_INFINITY;
 
-  for (let i = 0; i < sortedMinutes.length - 1; i += 1) {
-    const earlier = <number>sortedMinutes[i];
-    const later = <number>sortedMinutes[i + 1];
-    const timeDifferenceInMinutes = later - earlier;
-    smallestTimeInterval = Math.min(
-      smallestTimeInterval,
-      timeDifferenceInMinutes
-    );
+  while (right < seenMinutes.length) {
+    while (seenMinutes[left] === false) {
+      left += 1;
+    }
+
+    right = left + 1;
+
+    while (seenMinutes[right] === false) {
+      right += 1;
+    }
+
+    if (right < seenMinutes.length) {
+      const timeDifferenceInMinutes = right - left;
+      smallestTimeInterval = Math.min(
+        smallestTimeInterval,
+        timeDifferenceInMinutes
+      );
+
+      left = right;
+    }
   }
 
   return `${smallestTimeInterval} minutes`;
