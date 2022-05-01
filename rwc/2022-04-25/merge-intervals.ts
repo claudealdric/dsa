@@ -11,7 +11,7 @@ export function mergeIntervals(intervals: Interval[]): Interval[] {
     return currMin <= prevMax;
   };
 
-  for (let i = 1; i < intervals.length; i += 1) {
+  for (let i = 0; i < intervals.length; i += 1) {
     const currInterval = <Interval>intervals[i];
 
     if (intervalsOverlap(prevInterval, currInterval)) {
@@ -26,7 +26,9 @@ export function mergeIntervals(intervals: Interval[]): Interval[] {
       prevInterval = currInterval;
     }
 
-    if (isLastIndex(i)) mergedIntervals.push(prevInterval);
+    if (isLastIndex(i)) {
+      mergedIntervals.push(prevInterval);
+    }
   }
 
   return mergedIntervals;

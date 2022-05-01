@@ -32,6 +32,8 @@ describe('mergeIntervals', () => {
         [3, 7],
       ],
     ],
+    [[], []],
+    [[[1, 2]], [[1, 2]]],
   ];
   test.concurrent.each(testCases)(
     'merges intervals that overlap',
