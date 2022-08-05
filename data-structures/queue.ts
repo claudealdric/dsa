@@ -27,4 +27,8 @@ export class Queue<T> {
 
 		return returnVal;
 	}
+
+	isEmpty(): boolean {
+		return this.first === null;
+	}
 }
