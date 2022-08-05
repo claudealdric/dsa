@@ -22,34 +22,34 @@
  */
 
 const printAsterisk = (spaces: number): void => {
-  console.log(' '.repeat(spaces) + '*');
+	console.log(' '.repeat(spaces) + '*');
 };
 
 const printBackslash = (size: number, offset: number = 0): void => {
-  for (let spaces = 0; spaces < size; spaces += 1) {
-    printAsterisk(spaces + offset);
-  }
+	for (let spaces = 0; spaces < size; spaces += 1) {
+		printAsterisk(spaces + offset);
+	}
 };
 
 const printSlash = (size: number): void => {
-  for (let spaces = size - 1; spaces >= 0; spaces -= 1) {
-    printAsterisk(spaces);
-  }
+	for (let spaces = size - 1; spaces >= 0; spaces -= 1) {
+		printAsterisk(spaces);
+	}
 };
 
 const printArrow = (direction: 'left' | 'right', size: number): void => {
-  switch (direction) {
-    case 'right':
-      printBackslash(size);
-      printSlash(size - 1);
-      break;
-    case 'left':
-      printSlash(size);
-      printBackslash(size - 1, 1);
-      break;
-    default:
-      throw new Error('Direction not found');
-  }
+	switch (direction) {
+		case 'right':
+			printBackslash(size);
+			printSlash(size - 1);
+			break;
+		case 'left':
+			printSlash(size);
+			printBackslash(size - 1, 1);
+			break;
+		default:
+			throw new Error('Direction not found');
+	}
 };
 
 // Test cases

@@ -3,17 +3,17 @@
 type ArrayOfArrays = Array<number | ArrayOfArrays>;
 
 function flatten(arr: ArrayOfArrays) {
-  let flattenedArr: number[] = [];
+	let flattenedArr: number[] = [];
 
-  for (const elem of arr) {
-    if (typeof elem === 'number') {
-      flattenedArr.push(elem);
-    } else if (Array.isArray(elem)) {
-      flattenedArr = flattenedArr.concat(flatten(elem));
-    }
-  }
+	for (const elem of arr) {
+		if (typeof elem === 'number') {
+			flattenedArr.push(elem);
+		} else if (Array.isArray(elem)) {
+			flattenedArr = flattenedArr.concat(flatten(elem));
+		}
+	}
 
-  return flattenedArr;
+	return flattenedArr;
 }
 
 console.log(flatten([1, 2, 3, [4, 5]])); // [1, 2, 3, 4, 5]

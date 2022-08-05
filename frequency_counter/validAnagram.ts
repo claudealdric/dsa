@@ -1,29 +1,29 @@
 function validAnagram(str1: string, str2: string): boolean {
-  // Check if the two strings have the same length
-  if (str1.length !== str2.length) {
-    return false;
-  }
+	// Check if the two strings have the same length
+	if (str1.length !== str2.length) {
+		return false;
+	}
 
-  // Convert strings to frequency objects
-  const frequencies1: any = convertToFrequencies(str1);
-  const frequencies2: any = convertToFrequencies(str2);
+	// Convert strings to frequency objects
+	const frequencies1: any = convertToFrequencies(str1);
+	const frequencies2: any = convertToFrequencies(str2);
 
-  // Check if the two strings consist of the same letters
-  for (const char in frequencies1) {
-    if (!(char in frequencies2) || frequencies1[char] !== frequencies2[char]) {
-      return false;
-    }
-  }
+	// Check if the two strings consist of the same letters
+	for (const char in frequencies1) {
+		if (!(char in frequencies2) || frequencies1[char] !== frequencies2[char]) {
+			return false;
+		}
+	}
 
-  return true;
+	return true;
 }
 
 function convertToFrequencies(str: string): any {
-  const frequencies: any = {};
-  for (const char of str) {
-    frequencies[char] = (frequencies[char] || 0) + 1;
-  }
-  return frequencies;
+	const frequencies: any = {};
+	for (const char of str) {
+		frequencies[char] = (frequencies[char] || 0) + 1;
+	}
+	return frequencies;
 }
 
 console.log(validAnagram('', '')); // true

@@ -1,19 +1,19 @@
 function sameFrequency(num1: number, num2: number): boolean {
-  const num1Frequencies: any = {};
+	const num1Frequencies: any = {};
 
-  for (const digit of String(num1)) {
-    num1Frequencies[digit] = (num1Frequencies[digit] || 0) + 1;
-  }
+	for (const digit of String(num1)) {
+		num1Frequencies[digit] = (num1Frequencies[digit] || 0) + 1;
+	}
 
-  for (const digit of String(num2)) {
-    if (!(digit in num1Frequencies) || num1Frequencies[digit] === 0) {
-      return false;
-    } else {
-      num1Frequencies[digit] -= 1;
-    }
-  }
+	for (const digit of String(num2)) {
+		if (!(digit in num1Frequencies) || num1Frequencies[digit] === 0) {
+			return false;
+		} else {
+			num1Frequencies[digit] -= 1;
+		}
+	}
 
-  return true;
+	return true;
 }
 
 console.log(sameFrequency(182, 281)); // true

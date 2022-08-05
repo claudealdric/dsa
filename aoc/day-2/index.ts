@@ -1,6 +1,6 @@
 import {
-  getNewPositionFromCommands1,
-  getNewPositionFromCommands2,
+	getNewPositionFromCommands1,
+	getNewPositionFromCommands2,
 } from './find-coordinate';
 import commands from './input';
 

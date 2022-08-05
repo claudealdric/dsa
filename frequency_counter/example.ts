@@ -1,16 +1,16 @@
 function same(arr1: number[], arr2: number[]): boolean {
-  const obj2: any = {};
-  for (const num of arr2) {
-    obj2[num] = true;
-  }
+	const obj2: any = {};
+	for (const num of arr2) {
+		obj2[num] = true;
+	}
 
-  for (const num of arr1) {
-    if (!(num ** 2 in obj2)) {
-      return false;
-    }
-  }
+	for (const num of arr1) {
+		if (!(num ** 2 in obj2)) {
+			return false;
+		}
+	}
 
-  return true;
+	return true;
 }
 
 // Test 1

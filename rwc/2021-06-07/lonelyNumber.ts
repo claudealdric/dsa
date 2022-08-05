@@ -3,17 +3,17 @@ Given three numbers, return their product. But, if one of the numbers is the sam
 */
 
 const lonelyNumber = (...numbers: number[]): number => {
-  const frequencies: Record<number, number> = {};
+	const frequencies: Record<number, number> = {};
 
-  numbers.forEach((number) => {
-    frequencies[number] = (frequencies[number] ?? 0) + 1;
-  });
+	numbers.forEach((number) => {
+		frequencies[number] = (frequencies[number] ?? 0) + 1;
+	});
 
-  return Object.keys(frequencies).reduce((accumulator, numberStr) => {
-    const number = parseInt(numberStr, 10);
-    accumulator *= frequencies[number] === 1 ? number : 1;
-    return accumulator;
-  }, 1);
+	return Object.keys(frequencies).reduce((accumulator, numberStr) => {
+		const number = parseInt(numberStr, 10);
+		accumulator *= frequencies[number] === 1 ? number : 1;
+		return accumulator;
+	}, 1);
 };
 
 console.log(lonelyNumber(1, 2, 3) === 6); // returns true

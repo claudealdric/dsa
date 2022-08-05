@@ -3,25 +3,25 @@
 type Callback = (val: number) => boolean;
 
 function someRecursive(arr: number[], cb: Callback): boolean {
-  // Base case
-  if (arr.length === 1) {
-    return cb(arr[0] as number);
-  } else if (arr.length < 1) {
-    return false;
-  }
+	// Base case
+	if (arr.length === 1) {
+		return cb(arr[0] as number);
+	} else if (arr.length < 1) {
+		return false;
+	}
 
-  // Recursion
-  const currentNumber: number = arr[0] ?? 0;
+	// Recursion
+	const currentNumber: number = arr[0] ?? 0;
 
-  // Check what the callback returns with the current number
-  if (cb(currentNumber)) {
-    // If the callback returns true, return true and stop the recursion
-    return true;
-  }
+	// Check what the callback returns with the current number
+	if (cb(currentNumber)) {
+		// If the callback returns true, return true and stop the recursion
+		return true;
+	}
 
-  // Otherwise, return false and continue with the recursion on the new, smaller array
-  const newArr: number[] = arr.slice(1);
-  return false || someRecursive(newArr, cb);
+	// Otherwise, return false and continue with the recursion on the new, smaller array
+	const newArr: number[] = arr.slice(1);
+	return false || someRecursive(newArr, cb);
 }
 
 const isOdd: Callback = (val) => val % 2 !== 0;
