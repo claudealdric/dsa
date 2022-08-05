@@ -1,11 +1,11 @@
 import { LinkedList } from './singly-linked-list';
 
-export class Queue {
-	private first: LinkedList | null = null;
-	private last: LinkedList | null = null;
+export class Queue<T> {
+	private first: LinkedList<T> | null = null;
+	private last: LinkedList<T> | null = null;
 
-	enqueue(val: number): number {
-		const newVal = new LinkedList(val);
+	enqueue(val: T): T {
+		const newVal = new LinkedList<T>(val);
 
 		if (this.first && this.last) {
 			this.last.next = newVal;
@@ -17,7 +17,7 @@ export class Queue {
 		return val;
 	}
 
-	dequeue(): number | null {
+	dequeue(): T | null {
 		const returnVal = this.first?.val ?? null;
 
 		this.first = this.first?.next ?? null;

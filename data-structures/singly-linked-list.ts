@@ -1,8 +1,8 @@
-export class LinkedList {
-	val: number | null;
-	next: LinkedList | null;
+export class LinkedList<T> {
+	val: T | null;
+	next: LinkedList<T> | null;
 
-	constructor(val?: number, next?: LinkedList) {
+	constructor(val?: T, next?: LinkedList<T>) {
 		this.val = val ?? null;
 		this.next = next ?? null;
 	}
