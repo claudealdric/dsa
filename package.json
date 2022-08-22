@@ -1,39 +1,40 @@
 {
-  "name": "data_structures_and_algorithms",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/caldric/data_structures_and_algorithms.git",
-  "author": "caldric <cvaldric@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@types/lodash": "^4.14.166",
-    "@types/node": "^14.14.16",
-    "@typescript-eslint/eslint-plugin": "^4.28.2",
-    "@typescript-eslint/parser": "^4.28.2",
-    "eslint": "^7.30.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-node": "^11.1.0",
-    "jest": "^27.0.4",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
-    "ts-jest": "^27.0.3",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.3.5"
-  },
-  "scripts": {
-    "build": "tsc",
-    "lint": "eslint --ignore-path .gitignore .",
-    "prettier": "prettier --ignore-path .gitignore \"**/*/*.{ts,json}\"",
-    "format": "yarn prettier --write",
-    "format:check": "yarn prettier --check",
-    "type:check": "tsc --noEmit",
-    "validate": "npm-run-all --parallel *:check lint test",
-    "test": "jest"
-  }
+	"name": "data_structures_and_algorithms",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/caldric/data_structures_and_algorithms.git",
+	"author": "caldric <cvaldric@gmail.com>",
+	"license": "MIT",
+	"type": "module",
+	"dependencies": {
+		"lodash": "^4.17.21"
+	},
+	"devDependencies": {
+		"@types/jest": "^26.0.23",
+		"@types/lodash": "^4.14.166",
+		"@types/node": "^14.14.16",
+		"@typescript-eslint/eslint-plugin": "^4.28.2",
+		"@typescript-eslint/parser": "^4.28.2",
+		"eslint": "^7.30.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.23.4",
+		"eslint-plugin-node": "^11.1.0",
+		"jest": "^27.0.4",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.2.1",
+		"ts-jest": "^27.0.3",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.3.5"
+	},
+	"scripts": {
+		"build": "tsc",
+		"lint": "eslint --ignore-path .gitignore .",
+		"prettier": "prettier --ignore-path .gitignore \"**/*/*.{ts,json}\"",
+		"format": "yarn prettier --write",
+		"format:check": "yarn prettier --check",
+		"type:check": "tsc --noEmit",
+		"validate": "npm-run-all --parallel *:check lint test",
+		"test": "jest"
+	}
 }
