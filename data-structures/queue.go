@@ -1,47 +1,59 @@
 package data_structures
 
 type Queue[T any] struct {
-	head *ListNode[T]
-	tail *ListNode[T]
-	Size int
+	front *ListNode[T]
+	rear  *ListNode[T]
+	size  int
 }
 
 func NewQueue[T any]() *Queue[T] {
 	return &Queue[T]{}
 }
 
-func (q *Queue[T]) IsEmpty() bool {
-	return q.Size == 0
-}
-
-func (q *Queue[T]) Peek() (T, bool) {
-	var zeroVal T
-	if q.head == nil {
-		return zeroVal, false
-	}
-	return q.head.Val, true
-}
-
-func (q *Queue[T]) Enqueue(val T) T {
-	n := NewListNode(val)
-	if q.Size == 0 {
-		q.head = n
-		q.tail = q.head
+// Enqueue adds an element to the end of the Queue
+func (q *Queue[T]) Enqueue(value T) T {
+	newNode := NewListNode(value)
+	if q.IsEmpty() {
+		q.front = newNode
+		q.rear = newNode
 	} else {
-		q.tail.Next = n
-		q.tail = n
+		q.rear.Next = newNode
+		q.rear = newNode
 	}
-	q.Size++
-	return val
+	q.size++
+	return value
 }
 
+// Dequeue removes the first element from the Queue
 func (q *Queue[T]) Dequeue() (T, bool) {
-	if q.Size == 0 {
+	if q.IsEmpty() {
 		var zeroVal T
 		return zeroVal, false
 	}
-	val := q.head.Val
-	q.head = q.head.Next
-	q.Size--
-	return val, true
+	value := q.front.Value
+	q.front = q.front.Next
+	q.size--
+	if q.IsEmpty() {
+		q.rear = nil // If the queue is now empty, update the rear
+	}
+	return value, true
+}
+
+// Peek returns the first element of the Queue without removing it
+func (q *Queue[T]) Peek() (T, bool) {
+	if q.IsEmpty() {
+		var zeroVal T
+		return zeroVal, false
+	}
+	return q.front.Value, true
+}
+
+// IsEmpty returns true if the Queue is empty
+func (q *Queue[T]) IsEmpty() bool {
+	return q.size == 0
+}
+
+// Size returns the number of elements in the Queue
+func (q *Queue[T]) Size() int {
+	return q.size
 }
