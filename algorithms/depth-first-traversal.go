@@ -20,3 +20,22 @@ func DfsRecursive(node *data_structures.TreeNode[int]) {
 	DfsRecursive(node.Left)
 	DfsRecursive(node.Right)
 }
+
+func DfsIterative(node *data_structures.TreeNode[int]) {
+	var stack data_structures.Stack[*data_structures.TreeNode[int]]
+	if node != nil {
+		stack.Push(node)
+	}
+
+	for len(stack) > 0 {
+		curr, _ := stack.Pop()
+		fmt.Println(curr.Val)
+
+		if curr.Right != nil {
+			stack.Push(curr.Right)
+		}
+		if curr.Left != nil {
+			stack.Push(curr.Left)
+		}
+	}
+}
