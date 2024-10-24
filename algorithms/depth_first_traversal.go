@@ -6,19 +6,19 @@ import (
 	data_structures "github.com/claudealdric/dsa/data-structures"
 )
 
-func DfsRecursive(node *data_structures.TreeNode[int]) {
+func DfsRecursive(node *data_structures.TreeNode[int], nums *[]int) {
 	if node == nil {
 		return
 	}
 
-	fmt.Println(node.Val)
+	*nums = append(*nums, node.Val)
 
 	if node.Left == nil && node.Right == nil {
 		return
 	}
 
-	DfsRecursive(node.Left)
-	DfsRecursive(node.Right)
+	DfsRecursive(node.Left, nums)
+	DfsRecursive(node.Right, nums)
 }
 
 func DfsIterative(node *data_structures.TreeNode[int]) {
