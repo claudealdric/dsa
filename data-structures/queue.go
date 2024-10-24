@@ -1,4 +1,4 @@
-package data_structures
+package datastructs
 
 type Queue[T any] struct {
 	front *ListNode[T]

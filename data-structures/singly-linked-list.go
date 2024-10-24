@@ -1,4 +1,4 @@
-package data_structures
+package datastructs
 
 type ListNode[T any] struct {
 	Value T

@@ -3,10 +3,10 @@ package algorithms
 import (
 	"fmt"
 
-	data_structures "github.com/claudealdric/dsa/data-structures"
+	datastructs "github.com/claudealdric/dsa/data-structures"
 )
 
-func DfsRecursive(node *data_structures.TreeNode[int], nums *[]int) {
+func DfsRecursive(node *datastructs.TreeNode[int], nums *[]int) {
 	if node == nil {
 		return
 	}
@@ -21,8 +21,8 @@ func DfsRecursive(node *data_structures.TreeNode[int], nums *[]int) {
 	DfsRecursive(node.Right, nums)
 }
 
-func DfsIterative(node *data_structures.TreeNode[int]) {
-	var stack data_structures.Stack[*data_structures.TreeNode[int]]
+func DfsIterative(node *datastructs.TreeNode[int]) {
+	var stack datastructs.Stack[*datastructs.TreeNode[int]]
 	if node != nil {
 		stack.Push(node)
 	}

@@ -3,11 +3,11 @@ package algorithms
 import (
 	"fmt"
 
-	data_structures "github.com/claudealdric/dsa/data-structures"
+	datastructs "github.com/claudealdric/dsa/data-structures"
 )
 
-func BfsQueue(root *data_structures.TreeNode[int]) {
-	q := data_structures.NewQueue[*data_structures.TreeNode[int]]()
+func BfsQueue(root *datastructs.TreeNode[int]) {
+	q := datastructs.NewQueue[*datastructs.TreeNode[int]]()
 	if root != nil {
 		q.Enqueue(root)
 	}

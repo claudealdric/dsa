@@ -1,4 +1,4 @@
-package data_structures
+package datastructs
 
 type TreeNode[T any] struct {
 	Val   T
