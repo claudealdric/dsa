@@ -18,6 +18,19 @@ def inorder(root):
     print(root.value, end=" ")
     inorder(root.right)
 
+def inorder_iterative(root):
+    stack = []
+    curr = root
+
+    while curr or stack:
+        while curr:
+            stack.append(curr)
+            curr = curr.left
+
+        curr = stack.pop()
+        print(curr.value, end=" ")
+        curr = curr.right
+
 def postorder(root):
     if root is None:
         return
@@ -36,6 +49,8 @@ root = TreeNode('A', TreeNode('B', TreeNode('D'), TreeNode('E')), TreeNode('C'))
 pre_order(root) # A B D E C
 print("")
 inorder(root) # D B E A C
+print("")
+inorder_iterative(root) # D B E A C
 print("")
 postorder(root) # D E B C A
 print("")
